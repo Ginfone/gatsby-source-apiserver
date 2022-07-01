@@ -72,7 +72,7 @@ async function fetch({
 
   let allRoutes
   let routeData
-
+  
   // Attempt to download the data from api
   routeData = useCache && await cache.get(url)
 
@@ -89,6 +89,7 @@ async function fetch({
       }
     } catch (e) {
       console.log('\nGatsby Source Api Server response error:\n', e.response.data && e.response.data.errors)
+      console.log(e.config.url)
       httpExceptionHandler(e, reporter)
     }
   } else {
