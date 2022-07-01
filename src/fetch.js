@@ -89,8 +89,8 @@ async function fetch({
       }
     } catch (e) {
       console.log('\nGatsby Source Api Server response error:\n', e.response.data && e.response.data.errors)
+      console.log(e.config.url)
       httpExceptionHandler(e, reporter)
-      console.log(e.toJSON())
     }
   } else {
     reporter.verbose(`using cached data for ${url}`)
